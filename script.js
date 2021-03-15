@@ -25,7 +25,47 @@ function writePassword() {
       alert("You must select at least one character type!")
   }
   
+ /* DOM */
+
+ const resultEl = document.getElementById('password');
+  
+ document.getElementById('generate').addEventListener('click', () => { 
+   const hasLower = clowercase.true;
+   const hasUpper = cuppercase.true;
+   const hasNumber = cnumbers.true;
+   const hasSymbol = csymbols.true;
+   resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
+ });
  
+ 
+ const randomFunc = {
+   lower: getRandomLower,
+   upper: getRandomUpper,
+   number: getRandomNumber,
+   symbol: getRandomSymbol
+ }
+ 
+ 
+ function generatePassword(lower, upper, number, symbol, length) {
+   let generatedPassword = '';
+     const typesCount = lower + upper + number + symbol;
+   const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
+ 
+   // create a loop
+      for(let i=0; i<length; i+=typesCount) {
+     typesArr.forEach(type => {
+       const funcName = Object.keys(type)[0];
+       generatedPassword += randomFunc[funcName]();
+     });
+   }
+   
+   const finalPassword = generatedPassword.slice(0, length);
+   
+   return finalPassword;
+ }
+ 
+ 
+
 
 }
 
