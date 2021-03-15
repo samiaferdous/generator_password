@@ -37,14 +37,12 @@ function writePassword() {
    resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
  });
  
- 
  const randomFunc = {
    lower: getRandomLower,
    upper: getRandomUpper,
    number: getRandomNumber,
    symbol: getRandomSymbol
  }
- 
  
  function generatePassword(lower, upper, number, symbol, length) {
    let generatedPassword = '';
@@ -64,8 +62,6 @@ function writePassword() {
    return finalPassword;
  }
  
- 
-
 
 }
 
