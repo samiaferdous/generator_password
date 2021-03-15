@@ -8,13 +8,13 @@ function writePassword() {
 
   passwordText.value = password;
 
-  var length = prompt("How many characters would you like your password to be? Please enter between 8 to 128 characters.")
+  var plength = prompt("How many characters would you like your password to be? Please enter between 8 to 128 characters.")
 
-  if (length < 8 || plength > 128){
+  if (plength < 8 || plength > 128){
       alert("The length of your password must be between 8 to 128 characters.")
   }
   
-  if (length >= 8 && plength <= 128){
+  if (plength >= 8 && plength <= 128){
   var cuppercase = confirm("Would you like letters in UPPER CAPS?")
   var clowercase = confirm("Would you like letters in LOWER CAPS?")
   var cnumbers = confirm("Do you need numbers in your password?")
@@ -51,7 +51,7 @@ function writePassword() {
      const typesCount = lower + upper + number + symbol;
    const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
  
-   // create a loop
+   /*loop function*/
       for(let i=0; i<length; i+=typesCount) {
      typesArr.forEach(type => {
        const funcName = Object.keys(type)[0];
